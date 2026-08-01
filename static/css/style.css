@@ -2640,3 +2640,310 @@ width:240px;
 /*=====================================================
                 END OF FILE
 =====================================================*/
+/*====================================================
+                    LOGIN PAGE
+====================================================*/
+
+.login-page{
+
+min-height:90vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:70px 8%;
+
+}
+
+.login-container{
+
+width:100%;
+
+display:grid;
+
+grid-template-columns:1.1fr 0.9fr;
+
+gap:70px;
+
+align-items:center;
+
+}
+
+.login-left h1{
+
+font-size:58px;
+
+font-weight:800;
+
+line-height:1.1;
+
+color:var(--primary);
+
+margin:20px 0;
+
+}
+
+.login-left h1 span{
+
+color:var(--secondary);
+
+}
+
+.login-left p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:var(--muted);
+
+max-width:600px;
+
+margin-bottom:35px;
+
+}
+
+.login-dna{
+
+width:320px;
+
+display:block;
+
+margin-top:20px;
+
+filter:drop-shadow(0 15px 30px rgba(37,99,235,.18));
+
+animation:floatDNA 5s ease-in-out infinite;
+
+}
+
+@keyframes floatDNA{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/*====================================================
+                    LOGIN CARD
+====================================================*/
+
+.login-card{
+
+background:#fff;
+
+padding:45px;
+
+border-radius:28px;
+
+box-shadow:0 25px 60px rgba(15,23,42,.08);
+
+border:1px solid rgba(37,99,235,.08);
+
+}
+
+.login-card h2{
+
+font-size:34px;
+
+color:var(--primary);
+
+margin-bottom:8px;
+
+}
+
+.login-card p{
+
+color:var(--muted);
+
+margin-bottom:30px;
+
+}
+
+/*====================================================
+                    INPUTS
+====================================================*/
+
+.input-group{
+
+margin-bottom:22px;
+
+}
+
+.input-group label{
+
+display:block;
+
+font-size:15px;
+
+font-weight:600;
+
+margin-bottom:8px;
+
+color:var(--primary);
+
+}
+
+.input-group input{
+
+width:100%;
+
+padding:15px 18px;
+
+border:1px solid #D7E6F8;
+
+border-radius:12px;
+
+font-size:15px;
+
+transition:.3s;
+
+background:#FAFCFF;
+
+}
+
+.input-group input:focus{
+
+outline:none;
+
+border-color:#2563EB;
+
+box-shadow:0 0 0 4px rgba(37,99,235,.08);
+
+}
+
+/*====================================================
+                LOGIN OPTIONS
+====================================================*/
+
+.login-options{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:28px;
+
+font-size:14px;
+
+}
+
+.login-options a{
+
+color:var(--secondary);
+
+font-weight:600;
+
+text-decoration:none;
+
+}
+
+/*====================================================
+                LOGIN BUTTON
+====================================================*/
+
+.login-btn{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:14px;
+
+background:linear-gradient(135deg,#2563EB,#3B82F6);
+
+color:#fff;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.login-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 18px 35px rgba(37,99,235,.25);
+
+}
+
+.login-footer{
+
+margin-top:28px;
+
+text-align:center;
+
+font-size:15px;
+
+color:var(--muted);
+
+}
+
+.login-footer a{
+
+color:var(--secondary);
+
+font-weight:700;
+
+text-decoration:none;
+
+}
+
+/*====================================================
+                RESPONSIVE
+====================================================*/
+
+@media(max-width:950px){
+
+.login-container{
+
+grid-template-columns:1fr;
+
+}
+
+.login-left{
+
+text-align:center;
+
+}
+
+.login-left p{
+
+margin:auto auto 30px;
+
+}
+
+.login-dna{
+
+margin:auto;
+
+}
+
+}
