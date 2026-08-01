@@ -1,0 +1,103 @@
+<nav class="navbar">
+
+    <!-- ================= LOGO ================= -->
+
+    <a href="{{ url_for('dashboard') }}" class="logo">
+
+        <i class="ri-dna-line"></i>
+
+        <span>Genome</span>AI
+
+    </a>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <div class="nav-links">
+
+        <a href="{{ url_for('dashboard') }}">
+
+            <i class="ri-dashboard-line"></i>
+
+            Dashboard
+
+        </a>
+
+        <a href="{{ url_for('upload') }}">
+
+            <i class="ri-upload-cloud-2-line"></i>
+
+            Analysis
+
+        </a>
+
+        <a href="{{ url_for('history') }}">
+
+            <i class="ri-history-line"></i>
+
+            History
+
+        </a>
+
+        <a href="#about">
+
+            <i class="ri-information-line"></i>
+
+            About
+
+        </a>
+
+    </div>
+
+    <!-- ================= RIGHT SIDE ================= -->
+
+    <div class="nav-right">
+
+        <button class="btn btn-outline">
+
+            <i class="ri-notification-3-line"></i>
+
+        </button>
+
+        <div class="profile-menu">
+
+            <button class="profile-btn">
+
+                <i class="ri-user-3-line"></i>
+
+            </button>
+
+            <div class="dropdown">
+
+                <a href="#">
+
+                    <i class="ri-user-line"></i>
+
+                    My Profile
+
+                </a>
+
+                <a href="#">
+
+                    <i class="ri-settings-3-line"></i>
+
+                    Settings
+
+                </a>
+
+                <hr>
+
+                <a href="{{ url_for('logout') }}">
+
+                    <i class="ri-logout-box-r-line"></i>
+
+                    Logout
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>

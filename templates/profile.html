@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}
+GenomeAI | My Profile
+{% endblock %}
+
+{% block content %}
+
+<div class="profile-page">
+
+    <div class="profile-box">
+
+        <div class="profile-avatar">
+
+            {{ user.full_name[0]|upper }}
+
+        </div>
+
+        <h2>
+
+            {{ user.full_name }}
+
+        </h2>
+
+        <p>
+
+            GenomeAI User
+
+        </p>
+
+        <div class="profile-info">
+
+            <div class="profile-item">
+
+                <strong>Full Name</strong>
+
+                <span>{{ user.full_name }}</span>
+
+            </div>
+
+            <div class="profile-item">
+
+                <strong>Email</strong>
+
+                <span>{{ user.email }}</span>
+
+            </div>
+
+            <div class="profile-item">
+
+                <strong>Phone</strong>
+
+                <span>
+
+                    {{ user.phone if user.phone else "Not Available" }}
+
+                </span>
+
+            </div>
+
+            <div class="profile-item">
+
+                <strong>Member Since</strong>
+
+                <span>
+
+                    {{ user.created_at.strftime("%d %B %Y") }}
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <a href="{{ url_for('dashboard') }}" class="btn">
+
+            Dashboard
+
+        </a>
+
+        <a href="{{ url_for('upload') }}" class="btn btn-outline">
+
+            New Analysis
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

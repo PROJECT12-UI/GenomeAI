@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+{% block title %}
+GenomeAI | Analysis History
+{% endblock %}
+
+{% block content %}
+
+<div class="history-page">
+
+    <div class="dashboard-header">
+
+        <div class="dashboard-title">
+
+            <h1>Analysis History</h1>
+
+            <p>
+                View all your previous AI genome analysis reports.
+            </p>
+
+        </div>
+
+        <a href="{{ url_for('upload') }}" class="btn">
+
+            <i class="ri-add-circle-line"></i>
+
+            New Analysis
+
+        </a>
+
+    </div>
+
+    <div class="history-card">
+
+        {% if history %}
+
+        <table class="history-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Date</th>
+
+                    <th>Health Score</th>
+
+                    <th>Risk</th>
+
+                    <th>Predicted Disease</th>
+
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for item in history %}
+
+                <tr>
+
+                    <td>
+
+                        #{{ item.id }}
+
+                    </td>
+
+                    <td>
+
+                        {{ item.created_at.strftime("%d-%m-%Y %H:%M") }}
+
+                    </td>
+
+                    <td>
+
+                        {{ item.health_score }}%
+
+                    </td>
+
+                    <td>
+
+                        {% if item.risk_level == "High" %}
+
+                        <span style="color:#DC2626;font-weight:bold;">
+
+                            High
+
+                        </span>
+
+                        {% elif item.risk_level == "Medium" %}
+
+                        <span style="color:#F59E0B;font-weight:bold;">
+
+                            Medium
+
+                        </span>
+
+                        {% else %}
+
+                        <span style="color:#16A34A;font-weight:bold;">
+
+                            Low
+
+                        </span>
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>
+
+                        {{ item.predicted_disease }}
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{{ url_for('analysis_details', id=item.id) }}"
+                            class="btn">
+
+                            View
+
+                        </a>
+
+                        <a
+                            href="{{ url_for('download_report', id=item.id) }}"
+                            class="btn btn-outline">
+
+                            PDF
+
+                        </a>
+
+                        <form
+                            action="{{ url_for('delete_analysis', id=item.id) }}"
+                            method="POST"
+                            style="display:inline;">
+
+                            <button
+                                type="submit"
+                                class="btn btn-outline"
+                                onclick="return confirm('Delete this analysis permanently?')">
+
+                                Delete
+
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <div class="analysis-card">
+
+            <h2>
+
+                No Analysis Available
+
+            </h2>
+
+            <p>
+
+                You haven't performed any genome analysis yet.
+
+            </p>
+
+            <br>
+
+            <a
+                href="{{ url_for('upload') }}"
+                class="btn">
+
+                Start Your First Analysis
+
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

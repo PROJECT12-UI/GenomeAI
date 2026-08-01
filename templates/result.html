@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenomeAI - Analysis Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ {% include "navbar.html" %}
+<div class="container">
+
+    <div class="result-card">
+
+        <h1>🧬 Genome Analysis Report</h1>
+
+        <p class="subtitle">
+            AI Prediction Report for Future Baby Genetic Health
+        </p>
+        <div class="section">
+
+    <h2>📂 Uploaded Files</h2>
+
+    <p><strong>Mother DNA:</strong> {{ mother_file }}</p>
+
+    <p><strong>Father DNA:</strong> {{ father_file }}</p>
+
+</div>
+
+<hr>
+
+<div class="section">
+
+    <h2>📊 Sequence Information</h2>
+
+    <p><strong>Mother Length:</strong> {{ result.mother_length }}</p>
+
+    <p><strong>Father Length:</strong> {{ result.father_length }}</p>
+
+    <p><strong>Mother GC Content:</strong> {{ result.mother_gc }}%</p>
+
+    <p><strong>Father GC Content:</strong> {{ result.father_gc }}%</p>
+
+</div>
+
+<hr>
+
+<div class="section">
+
+    <h2>🧬 DNA Comparison</h2>
+
+    <p><strong>Similarity:</strong> {{ result.comparison.similarity }}%</p>
+
+    <p><strong>Matching Bases:</strong> {{ result.comparison.matches }}</p>
+
+    <p><strong>Different Bases:</strong> {{ result.comparison.differences }}</p>
+
+</div>
+
+<hr>
+
+<div class="section">
+
+    <h2>💚 Health Score</h2>
+
+    <h1 class="health-score">{{ result.health_score }}%</h1>
+
+</div>
+
+<hr>
+
+<div class="section">
+
+    <h2>⚠ Risk Level</h2>
+
+    <h2>{{ result.risk_level }}</h2>
+
+</div>
+
+<hr>
+
+<div class="section">
+
+    <h2>🧬 Predicted Disease</h2>
+
+    <p>{{ result.predicted_disease }}</p>
+
+</div>
+
+<hr>
+
+<div class="section">
+
+    <h2>💡 Recommendation</h2>
+
+    <p>{{ result.recommendation }}</p>
+
+</div>
+
+
+        <hr>
+
+        <div class="section">
+
+            <h2>⚠ Risk Level</h2>
+
+            <h2>{{ result.risk_level }}</h2>
+
+        </div>
+
+        <hr>
+
+        <div class="section">
+
+            <h2>🧬 Predicted Disease</h2>
+
+            <p>{{ result.predicted_disease }}</p>
+
+        </div>
+
+        <hr>
+
+        <div class="section">
+
+            <h2>💡 Recommendation</h2>
+
+            <p>{{ result.recommendation }}</p>
+
+        </div>
+
+        <hr>
+
+        <div class="buttons">
+
+            <a href="{{ url_for('upload') }}" class="btn">
+                Analyze Another Sample
+            </a>
+
+            <a href="{{ url_for('history') }}" class="btn">
+                View History
+            </a>
+
+            <a href="{{ url_for('dashboard') }}" class="btn">
+                Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

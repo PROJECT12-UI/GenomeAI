@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <link
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}GenomeAI{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block extra_css %}{% endblock %}
+
+</head>
+
+<body>
+
+<!-- ================= LOADER ================= -->
+
+<div id="page-loader">
+
+    <div class="loader-circle"></div>
+
+    <h2>GenomeAI</h2>
+
+    <p>Initializing AI Genome Engine...</p>
+
+</div>
+
+<!-- ================= BACKGROUND ================= -->
+
+<div class="aurora">
+
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+
+</div>
+
+<!-- Mouse Glow -->
+
+<div class="cursor-glow"></div>
+
+<!-- ================= NAVBAR ================= -->
+
+{% include "navbar.html" %}
+
+<!-- ================= FLASH MESSAGES ================= -->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+
+<div class="flash-container">
+
+{% for category, message in messages %}
+
+<div class="flash flash-{{ category }}">
+
+<i class="ri-information-line"></i>
+
+<span>{{ message }}</span>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+{% endwith %}
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main>
+
+{% block content %}
+
+{% endblock %}
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>GenomeAI</h3>
+
+<p>
+
+Artificial Intelligence powered genome analysis platform
+for predicting inherited genetic disorders and future baby
+health risk.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Platform</h3>
+
+<a href="/">Home</a>
+
+<a href="/dashboard">Dashboard</a>
+
+<a href="/upload">Analysis</a>
+
+<a href="/history">History</a>
+
+</div>
+
+<div>
+
+<h3>Features</h3>
+
+<a href="#">Genome Analysis</a>
+
+<a href="#">Disease Prediction</a>
+
+<a href="#">AI Reports</a>
+
+<a href="#">Health Score</a>
+
+</div>
+
+<div>
+
+<h3>Contact</h3>
+
+<p>Email: support@genomeai.com</p>
+
+<p>AI Healthcare Platform</p>
+
+<p>Version 2.0</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 GenomeAI. All Rights Reserved.
+
+</div>
+
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+{% block scripts %}
+
+{% endblock %}
+
+<script>
+
+window.addEventListener("load", function(){
+
+const loader = document.getElementById("page-loader");
+
+if(loader){
+
+loader.style.opacity = "0";
+
+setTimeout(function(){
+
+loader.style.display = "none";
+
+},500);
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

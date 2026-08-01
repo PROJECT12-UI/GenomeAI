@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}
+GenomeAI | Analysis Details
+{% endblock %}
+
+{% block content %}
+
+<div class="report-page">
+
+    <div class="report-header">
+
+        <div>
+
+            <h1>Genome Analysis Details</h1>
+
+            <p>
+
+                Analysis ID : #{{ analysis.id }}
+
+            </p>
+
+        </div>
+
+        <a href="{{ url_for('history') }}" class="btn">
+
+            Back to History
+
+        </a>
+
+    </div>
+
+    <div class="summary-grid">
+
+        <div class="summary-card">
+
+            <h2>{{ analysis.health_score }}%</h2>
+
+            <span>Health Score</span>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h2>{{ analysis.risk_level }}</h2>
+
+            <span>Risk Level</span>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h2>{{ analysis.created_at.strftime("%d-%m-%Y") }}</h2>
+
+            <span>Analysis Date</span>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h2>#{{ analysis.id }}</h2>
+
+            <span>Report ID</span>
+
+        </div>
+
+    </div>
+
+    <div class="report-section">
+
+        <h2>Genome Files</h2>
+
+        <table class="report-table">
+
+            <tr>
+
+                <th>Mother File</th>
+
+                <td>{{ analysis.mother_file }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Father File</th>
+
+                <td>{{ analysis.father_file }}</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="report-section">
+
+        <h2>Prediction Result</h2>
+
+        <table class="report-table">
+
+            <tr>
+
+                <th>Predicted Disease</th>
+
+                <td>{{ analysis.predicted_disease }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Risk Level</th>
+
+                <td>{{ analysis.risk_level }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Health Score</th>
+
+                <td>{{ analysis.health_score }}%</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="report-section">
+
+        <h2>Medical Recommendation</h2>
+
+        <p>
+
+            {{ analysis.recommendations }}
+
+        </p>
+
+    </div>
+
+    <div style="margin-top:30px;">
+
+        <a href="{{ url_for('download_report', id=analysis.id) }}"
+           class="btn">
+
+            Download Report
+
+        </a>
+
+        <a href="{{ url_for('history') }}"
+           class="btn btn-outline">
+
+            Back
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

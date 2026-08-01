@@ -1,0 +1,393 @@
+{% extends "base.html" %}
+
+{% block title %}
+GenomeAI | Genome Analysis
+{% endblock %}
+
+{% block content %}
+
+<section class="upload-page">
+
+    <div class="upload-header">
+
+        <span class="hero-badge">
+
+            GenomeAI Workspace
+
+        </span>
+
+        <h1>
+
+            AI Genome Analysis
+
+        </h1>
+
+        <p>
+
+            Upload maternal and paternal genome files to predict
+            future baby health using Artificial Intelligence.
+
+        </p>
+
+    </div>
+
+    <form
+        action="{{ url_for('upload') }}"
+        method="POST"
+        enctype="multipart/form-data">
+
+        <div class="upload-grid">
+
+            <!-- ===========================
+                    MOTHER
+            ============================ -->
+
+            <div class="upload-card">
+
+                <h2>
+
+                    Maternal Genome
+
+                </h2>
+
+                <p>
+
+                    Upload the mother's DNA genome file.
+
+                </p>
+
+                <div class="drop-area">
+
+                    <div class="upload-icon"></div>
+
+                    <h3>
+
+                        Mother's Genome
+
+                    </h3>
+
+                    <p>
+
+                        Select a genome file
+
+                    </p>
+
+                    <small>
+
+                        Supported:
+                        CSV • TXT • FASTA • VCF
+
+                    </small>
+
+                    <br><br>
+
+                    <label
+                        for="mother_file"
+                        class="browse-btn">
+
+                        Browse File
+
+                    </label>
+
+                    <input
+
+                        type="file"
+
+                        id="mother_file"
+
+                        name="mother_file"
+
+                        hidden
+
+                        required
+
+                        onchange="showMotherFile(this)">
+
+                    <div
+
+                        id="motherFileName"
+
+                        class="file-name">
+
+                        No file selected
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ===========================
+                    FATHER
+            ============================ -->
+
+            <div class="upload-card">
+
+                <h2>
+
+                    Paternal Genome
+
+                </h2>
+
+                <p>
+
+                    Upload the father's DNA genome file.
+
+                </p>
+
+                <div class="drop-area">
+
+                    <div class="upload-icon"></div>
+
+                    <h3>
+
+                        Father's Genome
+
+                    </h3>
+
+                    <p>
+
+                        Select a genome file
+
+                    </p>
+
+                    <small>
+
+                        Supported:
+                        CSV • TXT • FASTA • VCF
+
+                    </small>
+
+                    <br><br>
+
+                    <label
+
+                        for="father_file"
+
+                        class="browse-btn">
+
+                        Browse File
+
+                    </label>
+
+                    <input
+
+                        type="file"
+
+                        id="father_file"
+
+                        name="father_file"
+
+                        hidden
+
+                        required
+
+                        onchange="showFatherFile(this)">
+
+                    <div
+
+                        id="fatherFileName"
+
+                        class="file-name">
+
+                        No file selected
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+                <!-- ===========================
+                ANALYSIS CONFIGURATION
+        ============================ -->
+
+        <div class="simulation-card">
+
+            <div class="settings-header">
+
+                <div>
+
+                    <h2>
+
+                        Analysis Configuration
+
+                    </h2>
+
+                    <p>
+
+                        Configure AI genome analysis before starting.
+
+                    </p>
+
+                </div>
+
+                <span class="hero-badge">
+
+                    Secure
+
+                </span>
+
+            </div>
+
+            <div class="setting-group">
+
+                <label>
+
+                    Number of AI Simulations
+
+                </label>
+
+                <span id="rangeValue">
+
+                    100
+
+                </span>
+
+            </div>
+
+            <input
+
+                type="range"
+
+                id="simulationRange"
+
+                min="10"
+
+                max="1000"
+
+                value="100"
+
+                class="simulation-slider">
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+
+                        ⚡
+
+                    </div>
+
+                    <h4>
+
+                        Estimated Time
+
+                    </h4>
+
+                    <p>
+
+                        8–15 Seconds
+
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+
+                        🔒
+
+                    </div>
+
+                    <h4>
+
+                        Security
+
+                    </h4>
+
+                    <p>
+
+                        AES-256 Encryption
+
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+
+                        📄
+
+                    </div>
+
+                    <h4>
+
+                        Reports
+
+                    </h4>
+
+                    <p>
+
+                        AI Report + PDF
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            type="submit"
+            class="analyze-btn">
+
+            🧬 Start AI Genome Analysis
+
+        </button>
+
+    </form>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+const slider = document.getElementById("simulationRange");
+const value = document.getElementById("rangeValue");
+
+if(slider){
+
+    value.innerHTML = slider.value;
+
+    slider.oninput = function(){
+
+        value.innerHTML = this.value;
+
+    }
+
+}
+
+function showMotherFile(input){
+
+    if(input.files.length>0){
+
+        document.getElementById("motherFileName").innerHTML =
+        "✅ " + input.files[0].name;
+
+    }
+
+}
+
+function showFatherFile(input){
+
+    if(input.files.length>0){
+
+        document.getElementById("fatherFileName").innerHTML =
+        "✅ " + input.files[0].name;
+
+    }
+
+}
+
+</script>
+
+{% endblock %}

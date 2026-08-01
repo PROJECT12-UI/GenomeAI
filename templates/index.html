@@ -1,0 +1,380 @@
+{% extends "base.html" %}
+
+{% block title %}
+GenomeAI | AI Genome Analysis Platform
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================================
+                HERO SECTION
+========================================= -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+
+                AI • Genomics • Healthcare
+
+            </div>
+
+            <h1>
+
+                AI Genome Analysis
+
+                <span>
+
+                    Predict Future Baby Health
+
+                </span>
+
+            </h1>
+
+            <p>
+
+                GenomeAI is an Artificial Intelligence powered genome
+                analysis platform that compares maternal and paternal DNA
+                to predict inherited genetic disorders, estimate disease
+                probabilities, evaluate genetic compatibility, and generate
+                comprehensive medical reports for future baby health
+                prediction.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{{ url_for('upload') }}"
+                   class="primary-btn">
+
+                    Get Started
+
+                </a>
+
+                <a href="#about"
+                   class="secondary-btn">
+
+                    Know About Our Project
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="hero-image">
+
+            <img
+
+                src="{{ url_for('static', filename='images/dna.png') }}"
+
+                alt="DNA Illustration"
+
+                class="dna-image"
+
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+            QUICK STATISTICS
+========================================= -->
+
+<section class="stats-section">
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+
+            <h2>100+</h2>
+
+            <p>
+
+                Genetic Disorders Supported
+
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>98%</h2>
+
+            <p>
+
+                AI Prediction Accuracy
+
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>24/7</h2>
+
+            <p>
+
+                AI Genome Analysis
+
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>AI</h2>
+
+            <p>
+
+                Machine Learning Engine
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================================
+                FEATURES
+========================================= -->
+
+<section class="features-section">
+
+    <div class="section-header">
+
+        <span class="section-badge">
+
+            Platform Features
+
+        </span>
+
+        <h2>
+
+            Why Choose GenomeAI?
+
+        </h2>
+
+        <p>
+
+            GenomeAI combines Artificial Intelligence with genome analysis
+            to provide accurate predictions, comprehensive reports,
+            and meaningful genetic insights.
+
+        </p>
+
+    </div>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                🧬
+
+            </div>
+
+            <h3>
+
+                Genome Comparison
+
+            </h3>
+
+            <p>
+
+                Compare maternal and paternal DNA samples
+                to identify inherited genetic traits and
+                compatibility.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                🤖
+
+            </div>
+
+            <h3>
+
+                AI Disease Prediction
+
+            </h3>
+
+            <p>
+
+                Machine learning predicts possible inherited
+                genetic disorders and estimates future
+                health risks.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                📄
+
+            </div>
+
+            <h3>
+
+                Smart Medical Reports
+
+            </h3>
+
+            <p>
+
+                Generate professional AI reports with
+                health score, disease probability,
+                and recommendations.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+                ABOUT
+========================================= -->
+
+<section
+id="about"
+class="about-section">
+
+<div class="about-container">
+
+<div class="about-left">
+
+<img
+
+src="{{ url_for('static',
+filename='images/dna.png') }}"
+
+alt="DNA"
+
+class="about-image">
+
+</div>
+
+<div class="about-right">
+
+<span class="section-badge">
+
+About GenomeAI
+
+</span>
+
+<h2>
+
+Future Baby Genome Prediction
+Using Artificial Intelligence
+
+</h2>
+
+<p>
+
+GenomeAI is an Artificial Intelligence powered genome
+analysis platform developed to analyze maternal and
+paternal DNA sequences and estimate the health of
+future babies.
+
+</p>
+
+<p>
+
+The platform evaluates inherited genetic disorders,
+predicts disease probability, analyzes genome
+compatibility, and generates intelligent medical
+reports using advanced AI algorithms.
+
+</p>
+
+<p>
+
+GenomeAI was developed as an educational and research
+platform to demonstrate how Artificial Intelligence
+can support genetic analysis and healthcare
+decision-making.
+
+</p>
+
+<a
+
+href="{{ url_for('upload') }}"
+
+class="primary-btn">
+
+Start Genome Analysis
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+<!-- =========================================
+                CALL TO ACTION
+========================================= -->
+
+<section class="cta-section">
+
+    <div class="cta-card">
+
+        <span class="section-badge">
+
+            Ready to Begin?
+
+        </span>
+
+        <h2>
+
+            Start Your AI Genome Analysis Today
+
+        </h2>
+
+        <p>
+
+            Upload maternal and paternal genome files and let GenomeAI
+            generate intelligent health predictions, disease analysis,
+            and professional AI reports within seconds.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{{ url_for('upload') }}"
+               class="primary-btn">
+
+                Get Started
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
