@@ -1,9 +1,0 @@
-gene,variant,zygosity,pathogenicity,mutation_score
-BRCA1,WT,Homozygous Reference,Benign,0
-CFTR,WT,Homozygous Reference,Benign,0
-HBB,WT,Homozygous Reference,Benign,0
-FBN1,WT,Homozygous Reference,Benign,0
-PAH,WT,Homozygous Reference,Benign,0
-SMN1,WT,Homozygous Reference,Benign,0
-ATP7B,WT,Homozygous Reference,Benign,0
-GBA,WT,Homozygous Reference,Benign,0
